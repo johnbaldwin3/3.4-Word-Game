@@ -1,3 +1,5 @@
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
 #game-word {
   text-align: center;
   font-size: 60px;
@@ -8,10 +10,18 @@
 #guessing {
   text-align: center;
 }
+
 .turns-left {
   text-align: center;
 }
 
 #letters-guessed {
   text-align: center;
+}
+
+#game-word {
+
+  span {
+  margin: 0 8px;
+  }
 }

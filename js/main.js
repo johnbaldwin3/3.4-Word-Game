@@ -2,9 +2,12 @@
 
 
 // create a variable to hold the random word chosed from common-words
-var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-console.log(alphabet);
+
+var correctGuesses = 0;
+
 var gameWord;
+var guessedWord = [];
+var gameWordArray;
 var gameInd;
 var guess;
 var gameSpaces = '';
@@ -12,6 +15,7 @@ var gameWordDiv = document.getElementById('game-word');
 var turnsLeft = 8;
 var turnsRemain = document.getElementById('num-left');
 turnsRemain.innerHTML = turnsLeft;
+var dispLet = document.getElementById('letters-played');
 // create a new array to hold words with length of 3 or over
 var gameWordList = commonWords.filter(function(word){
   if (word.length >= 3) {
@@ -21,7 +25,7 @@ var gameWordList = commonWords.filter(function(word){
 // console.log(gameWordList); tested array
 
 //userGuess element hooked to text input box
-var userGuess = document.getElementById('textinput').value;
+var userGuess = document.getElementById('textinput');
 //user submit button hooked up to uSB var
 var userSubmitButton = document.getElementById('sub-button');
 
@@ -37,16 +41,21 @@ function gameWordIndex() {
 //run function
 gameWordIndex();
 //the actual word = word pulled from array at random index
+function createGameWord() {
 gameWord = gameWordList[gameInd];
-console.log(gameWord); //tested word
+gameWordArray = gameWord.split('');
+console.log(gameWordArray);
+console.log(gameWord);
+} //tested word
 
+createGameWord();
 // create a div span with unique id and  with blank space
 //for game word length
 (function(){
 
   for (var i = 0; i < gameWord.length; i++) {
       //set index to increment so it can be actionable later
-    gameSpaces =  gameSpaces + '<span id="'+i+'">'+' _ '+"</span>" ;
+    gameSpaces =  gameSpaces + '<span id="s'+i+'">'+'_'+"</span>" ;
   }
     //change innerHTML to the newly created html from for loop;
     gameWordDiv.innerHTML = gameSpaces;
@@ -64,27 +73,54 @@ function turnLimiter() {
   }
 }
 
-console.log(guess);
-
 //function to check if input is valid
-function guessChecker() {
+function guessValid() {
+  guessCC = guess.charCodeAt(0);
+  if (guessCC>64 && guessCC<91 || guessCC>96 && guessCC<123) {
+    displayGuess();
+  } else {
+    alert("That's not a letter fool!");
+    turnsLeft += 1;
+  }
+}
 
+function guessCheck() {
 
+  gameWordArray.forEach(function(letter, index)  {
+    if (letter == guess) {
+      guessedWord += letter;
+      turnsLeft += 1;
+      console.log('guessedWord', guessedWord);
+      //console.log('s'+index);
+      var spanSelect = document.getElementById('s'+index);
+      //console.log(spanSelect);
+      spanSelect.innerHTML = letter;
 
+      if(gameWord.indexOf(guessedWord) != -1){
+        correctGuesses += 1;
+
+      }
+      if (correctGuesses == gameWord.length) {
+        alert('you win');
+      }
+    }
+
+  });
 
 }
 
 
 function displayGuess() {
-  var dispLet = document.getElementById('letters-played');
-  dispLet.textContent += guess;
+  dispLet.textContent +=  guess;
+  //console.log(dispLet.value);
 }
 
 userSubmitButton.addEventListener('click', function(){
   guess = userGuess.value;
+  userGuess.value = '';
+  guessCheck();
+  guessValid();
   turnLimiter();
-  displayGuess();
-
   //if (guess.length < 1) {
   //  alert("Not a valid guess, homie!");
 //} else {
