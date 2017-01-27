@@ -101,7 +101,7 @@ function guessCheck() {
 
       }
       if (correctGuesses == gameWord.length) {
-        alert('you win');
+        $('#myModal').modal('show');  
       }
     }
 
