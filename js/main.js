@@ -100,9 +100,9 @@ function guessCheck() {
         correctGuesses += 1;
 
       }
-      if (correctGuesses == gameWord.length) {
-        $('#myModal').modal('show');  
-      }
+     if (correctGuesses == gameWord.length) {
+       $('#myModal').modal('show');
+     }
     }
 
   });

@@ -1,5 +1,17 @@
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
+.modal-content {
+
+  box-shadow: 3px 23px 92px #522D80;
+  background-color: #F66733;
+  color: #fff;
+}
+
+#myModal {
+  font-size: 40px;
+  text-align: center;
+}
+
 #game-word {
   text-align: center;
   font-size: 60px;
