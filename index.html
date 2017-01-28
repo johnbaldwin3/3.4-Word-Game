@@ -8,18 +8,38 @@
   </head>
   <body>
     <div class="container">
-      <div id="myModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-sm" role="document">
-          <div class="modal-content">You WON!</div>
-        </div>
+      <div id= "myModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Hangman Game!</h4>
       </div>
+      <div class="modal-body">
+        <p id="win-or-lose">Congratulations! You Won!&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="play-again" type="button" class="btn btn-primary">Play Again?</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div id="number-modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">That's not a number fool!</div>
+
+  </div>
+</div>
+
     <div class="gallows">
 
       <div id="you-lose"></div>
     </div>
     <div class="turns-left">
       <h2> Turns Remaining: <span id="num-left"></span> </h2>
-
+      <h4> Games Won: <span id="wins"></span></h4>
+      <h4> Games Lost: <span id="losses"></span></h4>
     </div>
     <div id ="game-contain">
       <h1 id="game-word"></h1>
