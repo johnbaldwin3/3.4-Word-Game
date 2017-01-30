@@ -1,10 +1,33 @@
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
+body {
+  //background image part of "Hang Em High" intro -- edited with //PhotoShop by me to have oil paint characteristics and alpha //properties
+  background-image: url("../images/hangem.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .modal-content {
 
   box-shadow: 3px 23px 92px #522D80;
   background-color: #F66733;
   color: #fff;
+}
+
+.gallows {
+  margin-top: 30%;
+
+}
+
+#sub-button {
+  font-family: 'Amatica SC', cursive;
+  font-size: 18px;
+}
+
+
+
+
+#myCanvas {
+  display: inline;
 }
 
 #number-modal {
@@ -23,6 +46,22 @@
   text-shadow: 1px 8px 9px black;
 
 }
+#game {
+  margin-top: 8%;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, .7);
+
+}
+
+.turns-left {
+   h2 {
+     font-size: 40px;
+   }
+   h4 {
+     font-size: 24px;
+   }
+  font-family: 'Kranky', cursive;
+}
 
 #guessing {
   text-align: center;
@@ -34,6 +73,7 @@
 
 #letters-guessed {
   text-align: center;
+  font-family: 'Rock Salt', cursive;
 }
 
 #game-word {

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>3.4 Word Game</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Amatica+SC|Eater|Kranky|Reenie+Beanie|Rock+Salt" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
@@ -27,17 +27,20 @@
 </div><!-- /.modal -->
 <div id="number-modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">That's not a number fool!</div>
+    <div id="num-or-repeat" class="modal-content"></div>
 
   </div>
 </div>
-
+    <div class="col-md-4 col-md-offset-2">
     <div class="gallows">
-
+      <canvas id="myCanvas" width="300" height="300" style="border:1px solid #000000;">
+      </canvas>
       <div id="you-lose"></div>
     </div>
+    </div>
+    <div id ="game" class="col-md-4">
     <div class="turns-left">
-      <h2> Turns Remaining: <span id="num-left"></span> </h2>
+      <h2 class="krank"> Turns Remaining: <span id="num-left"></span> </h2>
       <h4> Games Won: <span id="wins"></span></h4>
       <h4> Games Lost: <span id="losses"></span></h4>
     </div>
@@ -52,7 +55,7 @@
       <h3>The letters you have guessed so far:</h3>
       <h4 id="letters-played"></h4>
     </div>
-
+    </div>
     </div>
 
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
