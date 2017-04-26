@@ -5840,6 +5840,7 @@ body {
   text-shadow: 1px 8px 9px black; }
 
 #game {
+  width: 400px;
   margin-top: 8%;
   border: 1px solid black;
   background-color: rgba(255, 255, 255, 0.7); }

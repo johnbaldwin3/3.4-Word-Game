@@ -24,10 +24,8 @@ var turnsRemain = document.getElementById('num-left');
 turnsRemain.innerHTML = turnsLeft;
 var dispLet = document.getElementById('letters-played');
 // create a new array to hold words with length of 3 or over
-var gameWordList = commonWords.filter(function(word){
-  if (word.length >= 3) {
-    return word;
-  }
+var gameWordList = commonWords.filter(function(word) {
+  return word.length > 3;
 });
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
@@ -236,28 +234,30 @@ function drawGallows(){
   ctx.stroke();
 
   //right side of gallows
-  ctx.beginPath();
+
   ctx.moveTo(270, 300);
   ctx.lineTo(270, 15);
   ctx.stroke();
 
   //bottom of gallow pole
-  ctx.beginPath();
+
   ctx.moveTo(250, 30);
   ctx.lineTo(100, 30);
   ctx.stroke();
 
   //top of gallow pole
-  ctx.beginPath();
+
   ctx.moveTo(270, 15);
   ctx.lineTo(100, 15);
   ctx.stroke();
 
   //close of gallow
-  ctx.beginPath();
+
   ctx.moveTo(100, 15);
   ctx.lineTo(100, 30);
   ctx.stroke();
+
+
 
   //rope loop
   ctx.beginPath();
